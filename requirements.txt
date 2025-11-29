@@ -1,0 +1,17 @@
+# Core Deep Learning (choose one based on your system)
+# For GPU (CUDA 11.8):
+# torch==1.13.1+cu118
+# torchvision==0.14.1+cu118
+# For CPU only (recommended if disk space is limited):
+torch==2.0.1
+torchvision==0.15.2
+
+# Computer Vision & Processing
+opencv-python==4.8.0.74
+mediapipe==0.10.21
+Pillow==10.0.0
+numpy==1.26.4
+scipy==1.11.2
+
+# Utilities
+gdown==4.7.1

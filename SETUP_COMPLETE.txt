@@ -1,0 +1,574 @@
+# Virtual Try-On AI - Complete Setup Guide
+# دليل الإعداد الكامل - تطبيق الملابس الافتراضية
+
+## 📋 Project Overview
+
+This is a complete **Virtual Try-On AI** system with:
+- **Human Parsing**: SCHP model for clothes segmentation
+- **Pose Estimation**: MediaPipe for 33 body keypoints
+- **Body Measurements**: Automatic calculation of body dimensions
+- **Batch Processing**: Process multiple images at once
+- **Bilingual Support**: Arabic and English
+
+---
+
+## ✅ Complete File Structure Created
+
+```
+virtual-tryon/
+│
+├── Main Scripts (الملفات الرئيسية):
+│   ├── setup.py                 ← Initial setup (خطوة الإعداد الأولى)
+│   ├── main.py                  ← Complete pipeline (المسار الكامل)
+│   ├── run_parsing.py           ← Human parsing (تحليل الملابس)
+│   ├── run_pose.py              ← Pose estimation (تقدير الموضع)
+│   ├── batch_process.py         ← Batch processing (معالجة جماعية)
+│   └── verify_installation.py   ← Installation check (التحقق من التثبيت)
+│
+├── Configuration Files (ملفات الإعدادات):
+│   ├── requirements.txt          ← Python dependencies
+│   ├── README.md                 ← Full documentation
+│   ├── QUICKSTART.md             ← Quick start guide
+│   └── SETUP_COMPLETE.txt        ← This file
+│
+├── Scripts Package (حزمة السكريبتات):
+│   ├── scripts/
+│   │   ├── utils.py              ← Utility functions
+│   │   └── config.py             ← Configuration settings
+│   └── scripts/__init__.py       ← Package init
+│
+├── Data Directories (مجلدات البيانات):
+│   ├── input/                    ← Input images (صور المدخلات)
+│   ├── output/                   ← Final results (النتائج النهائية)
+│   ├── parsing/                  ← Parsing results (نتائج التحليل)
+│   ├── pose/                     ← Pose results (نتائج الموضع)
+│   ├── masks/                    ← Segmentation masks (الأقنعة)
+│   └── models/
+│       └── schp/                 ← SCHP model weights (أوزان النموذج)
+│
+└── Documentation (التوثيق):
+    ├── README.md                 ← Full guide (الدليل الكامل)
+    ├── QUICKSTART.md             ← Quick start (البدء السريع)
+    └── SETUP_COMPLETE.txt        ← Setup summary (ملخص الإعداد)
+```
+
+---
+
+## 📦 Created Files Summary
+
+### 1. **Main Scripts** (6 files)
+
+| File | Purpose | الهدف |
+|------|---------|--------|
+| `setup.py` | Environment setup | إعداد البيئة والمتطلبات |
+| `main.py` | Complete pipeline | تشغيل المسار الكامل |
+| `run_parsing.py` | SCHP parsing | تحليل الملابس |
+| `run_pose.py` | Pose estimation | تقدير الموضع |
+| `batch_process.py` | Batch processing | معالجة عدة صور |
+| `verify_installation.py` | Installation check | التحقق من التثبيت |
+
+### 2. **Utility Files** (2 files)
+
+| File | Purpose | الهدف |
+|------|---------|--------|
+| `scripts/utils.py` | Helper functions | دوال مساعدة |
+| `scripts/config.py` | Configuration | إعدادات المشروع |
+
+### 3. **Documentation** (3 files)
+
+| File | Content | المحتوى |
+|------|---------|--------|
+| `README.md` | Complete guide | شرح شامل |
+| `QUICKSTART.md` | Quick start | بدء سريع |
+| `requirements.txt` | Dependencies | المكتبات المطلوبة |
+
+---
+
+## 🚀 Getting Started / البدء السريع
+
+### Step 1: Initial Setup (الخطوة 1)
+
+```bash
+# Navigate to project
+cd d:\virtual-tryon
+
+# Run setup script (this will take 10-20 minutes)
+python setup.py
+```
+
+**What setup.py does:**
+- ✓ Creates all required folders
+- ✓ Creates Python 3.8 virtual environment
+- ✓ Installs all dependencies (torch, mediapipe, opencv, etc.)
+- ✓ Downloads SCHP model (lip_final.pth)
+- ✓ Clones SCHP repository from GitHub
+
+### Step 2: Prepare Input Image (الخطوة 2)
+
+```bash
+# Copy your image to input folder
+copy "C:\path\to\your\image.jpg" "input\test.jpg"
+```
+
+**Requirements:**
+- Full-body person in image
+- Clear and well-lit
+- JPEG or PNG format
+- Recommended size: 500x500+ pixels
+
+### Step 3: Run Pipeline (الخطوة 3)
+
+```bash
+# Run complete pipeline
+python main.py
+
+# Or run individual scripts
+python run_parsing.py  # Parsing only
+python run_pose.py     # Pose only
+```
+
+---
+
+## 📊 Output Files Generated
+
+### After Parsing (بعد تحليل الملابس)
+```
+parsing/
+├── test_visual.png          ← Colored segmentation
+├── test_labels.npy          ← Parsing labels array
+└── test_overlay.png         ← Overlay image
+
+masks/
+├── body_mask.png            ← Body segmentation
+├── cloth_mask.png           ← Clothing segmentation
+├── skin_mask.png            ← Skin segmentation
+└── background_mask.png      ← Background mask
+```
+
+### After Pose Estimation (بعد تقدير الموضع)
+```
+pose/
+├── keypoints.json           ← 33 body landmarks
+├── body_measure.json        ← Body measurements
+└── skeleton.png             ← Skeleton visualization
+```
+
+---
+
+## 🔧 Installation Requirements
+
+### System Requirements
+- **OS**: Windows 10+ / Linux / macOS
+- **RAM**: 4GB+ (8GB+ recommended)
+- **Disk Space**: 2GB+ for models
+- **GPU**: Optional (CUDA 11.8 for RTX 3050Ti)
+
+### Software Requirements
+- **Python**: 3.8 or higher
+- **Git**: For cloning repositories
+- **pip**: Python package manager
+
+### Internet
+- Required for initial setup and model downloads
+- ~1.5GB for model files
+
+---
+
+## 🎯 Key Features
+
+### 1. **Human Parsing** (تحليل الملابس)
+- SCHP model-based segmentation
+- 20 clothing/body classes
+- Multiple masks:
+  - Body mask
+  - Cloth mask
+  - Skin mask
+  - Background mask
+
+### 2. **Pose Estimation** (تقدير الموضع)
+- MediaPipe 33 landmarks
+- Real-time processing
+- Joint confidence scores
+- Skeleton visualization
+
+### 3. **Body Measurements** (قياسات الجسم)
+- Shoulder width
+- Hip width
+- Chest width
+- Body height
+- Arm length
+- Leg length
+
+### 4. **Batch Processing** (معالجة جماعية)
+- Process multiple images
+- Automatic report generation
+- Results organization
+
+---
+
+## 📚 File Descriptions
+
+### setup.py
+**Purpose**: Initial environment setup
+
+**Features:**
+- Creates virtual environment
+- Installs dependencies
+- Downloads SCHP model
+- Clones SCHP repository
+- Provides progress messages
+- Error handling
+
+**Usage:**
+```bash
+python setup.py
+```
+
+### run_parsing.py
+**Purpose**: Human parsing using SCHP model
+
+**Features:**
+- Loads SCHP model
+- Processes input image
+- Generates segmentation masks
+- Creates colored visualization
+- Saves results to parsing/ and masks/
+
+**Output:**
+- Parsing visualization
+- Label arrays (NumPy)
+- Segmentation masks (PNG)
+
+### run_pose.py
+**Purpose**: Pose estimation using MediaPipe
+
+**Features:**
+- Detects 33 body landmarks
+- Calculates body measurements
+- Draws skeleton visualization
+- Exports keypoints (JSON)
+- Saves measurements (JSON)
+
+**Output:**
+- Keypoints JSON
+- Body measurements JSON
+- Skeleton image
+
+### main.py
+**Purpose**: Complete pipeline orchestration
+
+**Features:**
+- Runs parsing + pose estimation
+- Manages pipeline execution
+- Error handling
+- Results summary
+- Command-line arguments
+
+**Usage:**
+```bash
+python main.py
+python main.py --skip-parsing
+python main.py --image custom_image.jpg
+```
+
+### batch_process.py
+**Purpose**: Process multiple images
+
+**Features:**
+- Find images in directory
+- Batch processing
+- Automatic report generation
+- Results organization
+- Success rate tracking
+
+**Usage:**
+```bash
+python batch_process.py --input-dir input --output-dir output
+python batch_process.py --recursive --pattern "*.jpg"
+```
+
+### verify_installation.py
+**Purpose**: Check installation status
+
+**Features:**
+- Python version check
+- Package verification
+- Folder structure check
+- Script availability check
+- CUDA support check
+- Model files verification
+
+**Usage:**
+```bash
+python verify_installation.py
+```
+
+### scripts/utils.py
+**Purpose**: Utility functions
+
+**Contains:**
+- Image processing functions
+- Mask operations
+- Bounding box calculations
+- Contrast enhancement
+- ImageProcessor class
+
+### scripts/config.py
+**Purpose**: Project configuration
+
+**Contains:**
+- Path definitions
+- Model settings
+- Image parameters
+- Parsing classes
+- Landmark definitions
+- Device configuration
+
+---
+
+## 🔑 Key Classes and Functions
+
+### In run_parsing.py
+```python
+load_image()              # Load input image
+simple_parsing()          # Perform parsing
+create_masks_from_labels() # Create segmentation masks
+visualize_parsing()       # Create colored visualization
+save_parsing_results()    # Save all results
+```
+
+### In run_pose.py
+```python
+detect_pose()            # Detect pose landmarks
+extract_keypoints()      # Extract landmark coordinates
+calculate_distance()     # Calculate distance between landmarks
+calculate_body_measurements() # Calculate body dimensions
+draw_skeleton()          # Create skeleton visualization
+```
+
+### In scripts/utils.py
+```python
+resize_image()           # Resize with aspect ratio
+apply_mask()             # Apply mask overlay
+get_bounding_box()       # Get mask boundaries
+enhance_contrast()       # Improve image contrast
+ImageProcessor           # Utility class
+```
+
+---
+
+## 📊 SCHP Model Information
+
+### Model Name
+**SCHP** = Self-Correction Human Parsing
+
+### Classes (20 total)
+- Background (class 0)
+- Hat, Hair, Sunglasses (1-3)
+- Clothes: Upper, Skirt, Pants, Dress, Belt (4-8)
+- Shoes (9-10)
+- Face, Legs, Arms (11-15)
+- Bag, Scarf (16-17)
+- Skin: Torso, Neck (18-19)
+
+### Model File
+- **Name**: lip_final.pth
+- **Size**: ~400MB
+- **Source**: Google Drive
+- **Downloaded to**: models/schp/lip_final.pth
+
+---
+
+## 🎮 MediaPipe Landmarks (33 total)
+
+### Head (8 landmarks)
+0: Nose, 1-3: Left eye, 4-6: Right eye, 7-8: Ears
+
+### Arms/Hands (12 landmarks)
+11-12: Shoulders, 13-16: Left arm, 14-16: Right arm
+
+### Legs (8 landmarks)
+23-24: Hips, 25-26: Knees, 27-28: Ankles
+
+### Feet (5 landmarks)
+29-30: Heels, 31-32: Foot indices
+
+---
+
+## 💾 Package Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| torch | 1.13.1+cu118 | Deep learning |
+| torchvision | 0.14.1+cu118 | Vision models |
+| opencv-python | 4.8.0.74 | Image processing |
+| mediapipe | 0.10.0 | Pose estimation |
+| pillow | 10.0.0 | Image operations |
+| numpy | 1.24.3 | Numerical computing |
+| gdown | 4.7.1 | Google Drive download |
+| scipy | 1.11.2 | Scientific computing |
+
+---
+
+## 🔄 Processing Flow
+
+```
+Input Image
+    ↓
+Parsing (run_parsing.py)
+    ├─ Load SCHP model
+    ├─ Analyze image
+    ├─ Generate masks
+    └─ Save results
+    ↓
+Pose Estimation (run_pose.py)
+    ├─ Detect landmarks
+    ├─ Extract keypoints
+    ├─ Calculate measurements
+    └─ Save results
+    ↓
+Output Files
+    ├─ parsing/ (segmentation)
+    ├─ masks/ (body parts)
+    ├─ pose/ (keypoints & measurements)
+    └─ Summary report
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Issue: Module not found
+**Solution:**
+```bash
+pip install -r requirements.txt
+```
+
+### Issue: CUDA errors
+**Solution:**
+```bash
+pip install torch==1.13.1 torchvision==0.14.1  # CPU version
+```
+
+### Issue: Model download fails
+**Solution:**
+Download manually: https://drive.google.com/file/d/1LBvbjRgGc0wJdvO65_ZVgnj0iB3pHMKqN/view
+
+### Issue: No person detected
+**Solution:**
+Use clearer image with full body visible
+
+---
+
+## 📝 Configuration Files
+
+### requirements.txt
+Lists all Python dependencies with versions
+
+### scripts/config.py
+Contains all project settings:
+- Path definitions
+- Model parameters
+- Processing settings
+- Class definitions
+- Measurement units
+
+---
+
+## 🚀 Advanced Usage
+
+### Custom image path
+```bash
+python main.py --image path/to/image.jpg
+```
+
+### Skip parsing step
+```bash
+python main.py --skip-parsing
+```
+
+### Skip pose step
+```bash
+python main.py --skip-pose
+```
+
+### Batch processing
+```bash
+python batch_process.py --input-dir images/ --output-dir results/
+```
+
+### Recursive search
+```bash
+python batch_process.py --recursive --pattern "*.jpg"
+```
+
+---
+
+## 📞 Support Resources
+
+1. **README.md**: Complete documentation with examples
+2. **QUICKSTART.md**: Quick start guide
+3. **verify_installation.py**: Check installation status
+4. **scripts/utils.py**: Utility functions documentation
+5. **scripts/config.py**: Configuration reference
+
+---
+
+## ✨ Features Summary
+
+✓ Complete setup automation
+✓ Human parsing with SCHP
+✓ Pose estimation with MediaPipe
+✓ Automatic body measurements
+✓ Batch processing support
+✓ Multiple output formats
+✓ Comprehensive error handling
+✓ Bilingual support (Arabic/English)
+✓ GPU acceleration support
+✓ Detailed documentation
+
+---
+
+## 📅 Version Information
+
+**Version**: 1.0
+**Release Date**: 2025-11-29
+**Status**: Complete and Ready for Use
+
+---
+
+## 🎓 Next Steps
+
+1. **Verify Installation**:
+   ```bash
+   python verify_installation.py
+   ```
+
+2. **Test with Sample Image**:
+   ```bash
+   # Place image at input/test.jpg
+   python main.py
+   ```
+
+3. **Check Results**:
+   - View output in parsing/, masks/, pose/ folders
+   - Review generated JSON files
+   - Check body measurements
+
+4. **Batch Processing** (optional):
+   ```bash
+   python batch_process.py --input-dir input --output-dir output
+   ```
+
+---
+
+**All files created successfully!**
+**The Virtual Try-On AI project is ready to use.**
+
+تم إنشاء جميع الملفات بنجاح!
+مشروع تطبيق الملابس الافتراضية جاهز للاستخدام.
+
+---
+
+For detailed information, see **README.md**
+للمزيد من المعلومات، انظر **README.md**

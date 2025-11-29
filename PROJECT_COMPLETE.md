@@ -7,7 +7,6 @@ Complete AI-powered virtual try-on system with:
 - ✅ Human Parsing (SCHP Model)
 - ✅ Pose Estimation (MediaPipe)
 - ✅ Body Measurements Calculation
-- ✅ Bilingual Support (English/العربية)
 - ✅ Batch Processing Capability
 
 ---
@@ -324,3 +323,4 @@ All systems **✓ OPERATIONAL** and **✓ VERIFIED**
 **Status:** Production Ready ✅  
 **Test Result:** PASSED ✅  
 **Pipeline Success Rate:** 100%
+

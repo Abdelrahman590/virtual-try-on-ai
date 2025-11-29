@@ -1,0 +1,32 @@
+{
+  "shoulder_width": {
+    "value": 45.12200198251725,
+    "unit": "pixels",
+    "ar_name": "عرض المنكبين"
+  },
+  "hip_width": {
+    "value": 23.916221354646332,
+    "unit": "pixels",
+    "ar_name": "عرض الورك"
+  },
+  "body_height": {
+    "value": 172.91131036767726,
+    "unit": "pixels",
+    "ar_name": "ارتفاع الجسم"
+  },
+  "chest_width": {
+    "value": 42.86590188339138,
+    "unit": "pixels",
+    "ar_name": "عرض الصدر"
+  },
+  "left_arm_length": {
+    "value": 70.70462335783306,
+    "unit": "pixels",
+    "ar_name": "طول الذراع اليسرى"
+  },
+  "left_leg_length": {
+    "value": 101.14449273615128,
+    "unit": "pixels",
+    "ar_name": "طول الساق اليسرى"
+  }
+}
